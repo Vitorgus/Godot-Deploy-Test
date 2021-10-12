@@ -8,11 +8,8 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  custom-godot-build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
+  godot-linux-build:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Get Godot
@@ -23,3 +20,15 @@ jobs:
         run: |
           mkdir -v -p build/web
           godot -v --export "HTML5" ./build/web/index.html
+  godot-windows-build:
+      runs-on: windows-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Get Godot
+          uses:  Vitorgus/Godot-Setup@dev
+          with:
+            godot-version: 3.3.3
+        - name: Web Build
+          run: |
+            mkdir build/web
+            godot -v --export "HTML5" ./build/web/index.html
