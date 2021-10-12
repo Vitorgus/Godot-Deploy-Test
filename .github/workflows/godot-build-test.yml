@@ -15,7 +15,11 @@ jobs:
         os: [ubuntu-latest, windows-latest]
     steps:
       - uses: actions/checkout@v2
-      - name: Run test
+      - name: Get Godot
         uses:  Vitorgus/Godot-Setup@dev
         with:
           godot-version: 3.3.3
+      - name: Web Build
+        run: |
+          mkdir -v -p build/web
+          godot -v --export "HTML5" ./build/web/index.html
