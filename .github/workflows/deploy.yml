@@ -17,7 +17,7 @@ jobs:
       
       - uses: vitorgus/setup-godot@dev
         with:
-          godot-version: something
+          godot-version: 3.3.10
       
       - name: Web Build
         run: |
