@@ -13,6 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Get Godot
+        id: godot-build
         uses:  Vitorgus/Godot-Setup@dev
         with:
           godot-version: 3.3.3
