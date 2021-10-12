@@ -15,7 +15,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      - uses: Vitorgus/Godot-Setup@dev
+      - uses: vitorgus/setup-godot@dev
         with:
           godot-version: 3.3.3
       
