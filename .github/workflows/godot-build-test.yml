@@ -16,6 +16,7 @@ jobs:
         uses:  Vitorgus/Godot-Setup@dev
         with:
           godot-version: 3.3.3
+      - run: ls ${{ steps.godot-build.outputs.templates }}
       - name: Web Build
         run: |
           mkdir -v -p build/web
@@ -25,9 +26,11 @@ jobs:
       steps:
         - uses: actions/checkout@v2
         - name: Get Godot
+          id: godot-build
           uses:  Vitorgus/Godot-Setup@dev
           with:
             godot-version: 3.3.3
+        - run: ls ${{ steps.godot-build.outputs.templates }}
         - name: Web Build
           run: |
             mkdir build/web
