@@ -48,8 +48,7 @@ jobs:
         if: ${{ inputs.runner == 'windows-latest' }}
         run: |
           mkdir build/web
-          echo $env:Path
-          godot -v --export "HTML5" ./build/web/index.html
+          godot --no-editor -v --export "HTML5" ./build/web/index.html
           
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
