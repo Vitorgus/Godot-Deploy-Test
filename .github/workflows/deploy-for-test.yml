@@ -48,8 +48,7 @@ jobs:
         if: ${{ inputs.runner == 'windows-latest' }}
         run: |
           mkdir build/web
-          echo $env:Path
-          ls "C:\hostedtoolcache\windows\godot\3.3.4\x64"
+          Get-Command godot
           godot -v --export "HTML5" ./build/web/index.html
           
       - name: Upload Artifact
